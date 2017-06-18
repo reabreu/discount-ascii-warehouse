@@ -13,6 +13,3 @@ ReactDOM.render(
     <App />
   </Provider>
   , document.querySelector('.container'));
-
-
-console.log('testea');

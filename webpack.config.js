@@ -1,41 +1,40 @@
 const path = require('path');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './static/index.html',
   filename: 'index.html',
   template: 'frontend/html/template.html',
-  inject: 'body'
-})
+  inject: 'body',
+});
 
 module.exports = {
   entry: [
-    './frontend/src/index.js'
+    './frontend/src/index.jsx',
   ],
   output: {
     path: path.resolve('static'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-    ]
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+    ],
   },
   devServer: {
-    publicPath: "/",
+    publicPath: '/',
     inline: true,
     historyApiFallback: true,
     proxy: {
-      "/api": {
+      '/api': {
         target: 'http://localhost:8000',
-        secure: false
+        secure: false,
       },
-      "/ad": {
+      '/ad': {
         target: 'http://localhost:8000',
-        secure: false
-      }
-    }
+        secure: false,
+      },
+    },
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [HtmlWebpackPluginConfig],
 };
