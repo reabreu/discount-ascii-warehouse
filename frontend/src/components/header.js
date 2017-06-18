@@ -1,4 +1,5 @@
 import React from 'react';
+import SponsorBlock from '../containers/sponsor_block';
 
 export default function () {
   return (
@@ -10,6 +11,7 @@ export default function () {
         Be sure to peruse our selection of ascii faces in an exciting range of
         sizes and prices.
       </p>
+      <SponsorBlock />
     </header>
   );
 }

@@ -2,7 +2,7 @@ import { renderComponent, expect } from '../test_helper';
 import Header from '../../src/components/header';
 
 // Use 'describe' to group together similar tests
-describe('Header', () => {
+describe('Component - Header', () => {
   let component;
 
   beforeEach(() => {
