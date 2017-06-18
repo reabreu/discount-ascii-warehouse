@@ -9,7 +9,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: [
-    './frontend/src/index.jsx',
+    './frontend/src/index.js',
   ],
   output: {
     path: path.resolve('static'),
