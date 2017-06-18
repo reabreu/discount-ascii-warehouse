@@ -9,12 +9,11 @@ describe('App', () => {
     component = renderComponent(App);
   });
 
-  it('shows a comment box', () => {
-    //expect(component.find('.comment-box')).to.exist;
+  it('shows a header', () => {
+    expect(component.find('header')).to.exist;
   });
 
-  it('shows a comment list', () => {
-    //expect(2).to.equal(2);
-    //expect(component.find('.comment-list')).to.exist;
+  it('shows ascii catalog browser', () => {
+    expect(component.find('.ascii-catalog-browser')).to.exist;
   });
 });
