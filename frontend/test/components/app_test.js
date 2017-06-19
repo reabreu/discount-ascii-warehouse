@@ -14,6 +14,6 @@ describe('Component - App', () => {
   });
 
   it('shows ascii catalog browser', () => {
-    expect(component.find('.ascii-catalog-browser')).to.exist;
+    expect(component.find('.catalog-browser')).to.exist;
   });
 });
