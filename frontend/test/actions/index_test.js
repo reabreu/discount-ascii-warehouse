@@ -1,6 +1,6 @@
 import { expect } from '../test_helper';
-import { SAVE_AD_ID, SEARCH_BY_PARAM } from '../../src/actions/types';
-import { saveAdId, searchByParam } from '../../src/actions';
+import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH } from '../../src/actions/types';
+import { saveAdId, searchByParam, getCatalog } from '../../src/actions';
 
 describe('Actions', () => {
   describe('Save Ad Id', () => {
@@ -24,6 +24,18 @@ describe('Actions', () => {
     it('has the correct payload', () => {
       const action = saveAdId('size');
       expect(action.payload).to.equal('size');
+    });
+  });
+
+  describe(NEW_SEARCH, () => {
+    it('has the correct type', () => {
+      const action = getCatalog();
+      expect(action.type).to.equal(NEW_SEARCH);
+    });
+
+    it('returns a promise', () => {
+      const action = getCatalog();
+      expect(action.payload).to.be.a('promise');
     });
   });
 });

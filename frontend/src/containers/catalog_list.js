@@ -8,9 +8,8 @@ class CatalogList extends Component {
   render() {
     return (
       <CatalogListStyle className="search-list">
-        <p>Im the catalog list</p>
         <div className="loader-wrapper">
-          <Loader/>
+          <Loader />
         </div>
       </CatalogListStyle>
     );
