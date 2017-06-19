@@ -18,6 +18,7 @@ class SponsorBlock extends Component {
     this.state = { adId: newAdId };
     this.props.saveAdId(newAdId);
   }
+  
   render() {
     return (
       <div className="sponsor-block">
