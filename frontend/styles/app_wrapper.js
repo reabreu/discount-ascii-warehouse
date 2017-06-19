@@ -6,4 +6,9 @@ export default styled.div`
   max-width: 1024px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 `;
