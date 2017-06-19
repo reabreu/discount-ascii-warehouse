@@ -4,6 +4,7 @@ import * as actions from '../actions';
 import { heading2 } from '../../styles/headings';
 import RadioGroup from '../../styles/radio_group';
 import RadioOption from '../../styles/radio_option';
+
 const Heading2 = heading2();
 
 class CatalogSearchForm extends Component {
