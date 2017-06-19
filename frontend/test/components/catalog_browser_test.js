@@ -10,7 +10,7 @@ describe('Component - Catalog Browser', () => {
   });
 
   it('shows search form', () => {
-    expect(component.find('.search-form')).to.exist;
+    expect(component.find('.catalog-search-form')).to.exist;
   });
 
   it('shows catalog result list', () => {
