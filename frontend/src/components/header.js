@@ -1,9 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 import SponsorBlock from '../containers/sponsor_block';
 import CatalogBrowser from '../components/catalog_browser';
-import Heading1 from '../../styles/heading_1';
 import Header from '../../styles/header';
 import DefaultParagraph from '../../styles/default_paragraph';
+import { heading1 } from '../../styles/headings';
+
+const Heading1 = heading1();
 
 export default function () {
   return (
