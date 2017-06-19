@@ -1,6 +1,8 @@
 import { renderComponent, expect } from '../test_helper';
 import App from '../../src/components/app';
 
+process.on("unhandledRejection", function (err) { throw err; })
+
 // Use 'describe' to group together similar tests
 export default () => {
   describe('App', () => {

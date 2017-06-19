@@ -9,13 +9,13 @@ export default () => {
     });
 
     it('handles action of type NEW_SEARCH', () => {
-      const action = { type: NEW_SEARCH, payload: [{ test1: 1 }, { test2: 2 }] };
-      expect(catalogTest([{ test3: 1 }, { test4: 2 }], action)).to.eql([{ test1: 1 }, { test2: 2 }]);
+      const action = { type: NEW_SEARCH, payload: { data: '{"id":"1"}\n{"id":"2"}\n' } };
+      expect(catalogTest([{ id: "3" }, { id: "4" }], action)).to.eql([{ id: "1" }, { id: "2" }]);
     });
 
     it('handles action of type ADD_TO_SEARCH', () => {
-      const action = { type: ADD_TO_SEARCH, payload: [{ test3: 3 }, { test4: 4 }] };
-      expect(catalogTest([{ test1: 1 }, { test2: 2 }], action)).to.eql([{ test1: 1 }, { test2: 2 }, { test3: 3 }, { test4: 4 }]);
+      const action = { type: ADD_TO_SEARCH, payload: { data: '{"id":"3"}\n{"id":"4"}\n' } };
+      expect(catalogTest([{ id: "1" }, { id: "2" }], action)).to.eql([{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }]);
     });
   });
 };
