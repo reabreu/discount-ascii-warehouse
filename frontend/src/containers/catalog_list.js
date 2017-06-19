@@ -5,9 +5,14 @@ import CatalogListStyle from '../../styles/catalog_list';
 import Loader from '../components/loader';
 
 class CatalogList extends Component {
+  componentDidMount() {
+    this.props.getCatalog();
+  }
+
   render() {
     return (
       <CatalogListStyle className="search-list">
+        <div>{this.props.catalog.length}</div>
         <div className="loader-wrapper">
           <Loader />
         </div>
