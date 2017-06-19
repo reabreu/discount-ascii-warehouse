@@ -23,11 +23,7 @@ export function getCatalog(param = false) {
   if (param) url += `?sort=${param}`;
 
   const request = axios.get(url);
-
-  request.catch(() => {
-    // Promise rejected, do something;
-  });
-
+  
   return {
     type: NEW_SEARCH,
     payload: request,

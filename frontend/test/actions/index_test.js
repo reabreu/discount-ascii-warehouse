@@ -30,11 +30,21 @@ describe('Actions', () => {
   describe(NEW_SEARCH, () => {
     it('has the correct type', () => {
       const action = getCatalog();
+
+      action.payload.catch(() => {
+        // Promise rejected, do something;
+      });
+
       expect(action.type).to.equal(NEW_SEARCH);
     });
 
     it('returns a promise', () => {
       const action = getCatalog();
+
+      action.payload.catch(() => {
+        // Promise rejected, do something;
+      });
+
       expect(action.payload).to.be.a('promise');
     });
   });
