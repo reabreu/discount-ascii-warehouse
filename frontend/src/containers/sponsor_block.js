@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import generateAdId from '../helpers/generate_ad_id';
 
 class SponsorBlock extends Component {
   constructor(props) {
     super(props);
-    this.generateAdId();
+
+    if (props.adId) {
+      this.state = { adId: props.adId };
+    } else {
+      this.generateAdId();
+    }
   }
 
   generateAdId() {
-    let newAdId = this.props.lastAdId;
-
-    do {
-      newAdId = Math.floor(Math.random() * 1000);
-    } while (newAdId === this.props.lastAdId);
+    const newAdId = generateAdId(this.props.lastAdId);
 
     this.state = { adId: newAdId };
     this.props.saveAdId(newAdId);
   }
-  
+
   render() {
     return (
       <div className="sponsor-block">

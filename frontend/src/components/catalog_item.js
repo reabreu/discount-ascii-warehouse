@@ -4,7 +4,7 @@ import CatalogItem from '../../styles/catalog_item';
 
 export default function({ item }){
   return (
-    <CatalogItem className="catalog-item" fontSize={item.size} >
+    <CatalogItem className="catalog-item" >
       <div>
         <p className="font">{item.face}</p>
         <p className="price">{moneyToString(item.price)}</p>

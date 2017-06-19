@@ -18,9 +18,9 @@ export function searchByParam(param) {
 }
 
 export function getCatalog(param = false) {
-  let url = `${API_ENDPOINT}/posts`;
+  let url = `${API_ENDPOINT}/posts?limit=60`;
 
-  if (param) url += `?sort=${param}`;
+  if (param) url += `&sort=${param}`;
 
   const request = axios.get(url);
 
