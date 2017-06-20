@@ -1,6 +1,6 @@
 import { expect } from '../test_helper';
-import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH } from '../../src/actions/types';
-import { saveAdId, searchByParam, getCatalog } from '../../src/actions';
+import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG } from '../../src/actions/types';
+import { saveAdId, searchByParam, getCatalog, setFetchCatalog } from '../../src/actions';
 
 describe('Actions', () => {
   describe(SAVE_AD_ID, () => {
@@ -46,6 +46,18 @@ describe('Actions', () => {
       });
 
       expect(action.payload).to.be.a('promise');
+    });
+  });
+
+  describe(SET_FETCH_CATALOG, () => {
+    it('has the correct type', () => {
+      const action = setFetchCatalog();
+      expect(action.type).to.equal(SET_FETCH_CATALOG);
+    });
+
+    it('return true', () => {
+      const action = setFetchCatalog();
+      expect(action.payload).to.equal(true);
     });
   });
 });
