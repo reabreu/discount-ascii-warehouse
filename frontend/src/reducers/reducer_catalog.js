@@ -12,9 +12,9 @@ export default function (state = [], action) {
 
   switch (action.type) {
     case NEW_SEARCH:
-      return action.error ? state : [...parseData(action.payload)] ;
+      return action.error ? state : [...parseData(action.payload)];
     case ADD_TO_SEARCH:
-      return action.error ? state: [...state, ...parseData(action.payload)];
+      return action.error ? state : [...state, ...parseData(action.payload)];
     default:
       return state;
   }
