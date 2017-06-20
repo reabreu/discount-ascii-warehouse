@@ -18,6 +18,7 @@ class CatalogList extends Component {
 
   componentDidMount() {
     this.generateAds();
+    this.props.setFetchCatalog();
     this.props.getCatalog();
   }
 
@@ -51,22 +52,30 @@ class CatalogList extends Component {
     return toRender;
   }
 
+  renderLoader() {
+    if (this.props.fetchCatalog) {
+      return (
+        <div className="loader-wrapper">
+          <Loader />
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <CatalogListStyle className="search-list">
         <div className="results">
           {this.renderItems()}
         </div>
-        <div className="loader-wrapper">
-          <Loader />
-        </div>
+        {this.renderLoader()}
       </CatalogListStyle>
     );
   }
 }
 
-function mapStateToProps({ catalog, lastAdId }) {
-  return { catalog, lastAdId };
+function mapStateToProps({ catalog, lastAdId, fetchCatalog }) {
+  return { catalog, lastAdId, fetchCatalog };
 }
 
 export default connect(mapStateToProps, actions)(CatalogList);
