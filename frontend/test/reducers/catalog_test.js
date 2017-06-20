@@ -1,6 +1,6 @@
 import { expect } from '../test_helper';
 import catalogTest from '../../src/reducers/reducer_catalog';
-import { NEW_SEARCH, ADD_TO_SEARCH } from '../../src/actions/types';
+import { NEW_SEARCH, ADD_TO_SEARCH, CLEAR_CATALOG } from '../../src/actions/types';
 
 export default () => {
   describe('Catalog', () => {
@@ -16,6 +16,11 @@ export default () => {
     it('handles action of type ADD_TO_SEARCH', () => {
       const action = { type: ADD_TO_SEARCH, payload: { data: '{"id":"3"}\n{"id":"4"}\n' } };
       expect(catalogTest([{ id: "1" }, { id: "2" }], action)).to.eql([{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }]);
+    });
+
+    it('handles action of type CLEAR_CATALOG', () => {
+      const action = { type: CLEAR_CATALOG };
+      expect(catalogTest([{ id: "1" }, { id: "2" }], action)).to.eql([]);
     });
   });
 };

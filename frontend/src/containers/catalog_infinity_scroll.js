@@ -42,7 +42,7 @@ export default function (ComposedComponent) {
       if (getPageScroll() > 80) {
         this.generateAds();
         this.props.setFetchCatalog();
-        this.props.getCatalog(false, this.props.catalog.length);
+        this.props.getCatalog(this.props.catalogSort, this.props.catalog.length);
       }
     }
 
@@ -51,8 +51,8 @@ export default function (ComposedComponent) {
     }
   }
 
-  function mapStateToProps({ catalog, fetchCatalog, fullCatalog }) {
-    return { catalog, fullCatalog, loading: fetchCatalog };
+  function mapStateToProps({ catalog, fetchCatalog, fullCatalog, catalogSort }) {
+    return { catalog, fullCatalog, loading: fetchCatalog, catalogSort };
   }
 
   return connect(mapStateToProps, actions)(CatalogInfinityScroll);

@@ -8,24 +8,37 @@ import RadioOption from '../../styles/radio_option';
 const Heading2 = heading2();
 
 class CatalogSearchForm extends Component {
+
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.setSortTerm(e.target.value);
+    this.props.setFetchCatalog();
+    this.props.clearCatalog();
+    this.props.getCatalog(e.target.value);
+  }
+
+  renderRadios() {
+    return ['size', 'price', 'id'].map((item) => {
+      return (
+        <RadioOption  key={item}>
+          <input onClick={this.handleClick} id={`${item}-search-param`} type="radio" name="search_type" value={`${item}`} />
+          <label htmlFor={`${item}-search-param`}>{item}</label>
+        </RadioOption>
+      );
+    });
+  }
+
   render() {
     return (
       <div className="catalog-search-form">
         <Heading2>Search by:</Heading2>
         <form>
           <RadioGroup>
-            <RadioOption>
-              <input id="size-search-param" type="radio" name="search_type" value="Size" />
-              <label htmlFor="size-search-param">Size</label>
-            </RadioOption>
-            <RadioOption>
-              <input id="price-search-param" type="radio" name="search_type" value="Price" />
-              <label htmlFor="price-search-param">Price</label>
-            </RadioOption>
-            <RadioOption>
-              <input id="id-search-param" type="radio" name="search_type" value="Id" />
-              <label htmlFor="id-search-param">ID</label>
-            </RadioOption>
+            {this.renderRadios()}
           </RadioGroup>
         </form>
       </div>

@@ -1,4 +1,4 @@
-import { NEW_SEARCH, ADD_TO_SEARCH } from '../actions/types';
+import { NEW_SEARCH, ADD_TO_SEARCH, CLEAR_CATALOG } from '../actions/types';
 
 function parseData(response) {
   const data = response.data.split(/\r?\n/);
@@ -15,6 +15,8 @@ export default function (state = [], action) {
       return action.error ? state : [...parseData(action.payload)];
     case ADD_TO_SEARCH:
       return action.error ? state : [...state, ...parseData(action.payload)];
+    case CLEAR_CATALOG:
+      return [];
     default:
       return state;
   }

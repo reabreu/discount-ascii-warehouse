@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG, ADD_TO_SEARCH } from './types';
+import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG, ADD_TO_SEARCH, CLEAR_CATALOG, SET_SORT_TERM} from './types';
 
 const API_ENDPOINT = '/api';
 
@@ -14,6 +14,12 @@ export function searchByParam(param) {
   return {
     type: SEARCH_BY_PARAM,
     payload: param,
+  };
+}
+
+export function clearCatalog() {
+  return {
+    type: CLEAR_CATALOG
   };
 }
 
@@ -37,5 +43,12 @@ export function setFetchCatalog() {
   return {
     type: SET_FETCH_CATALOG,
     payload: true,
+  };
+}
+
+export function setSortTerm(term) {
+  return {
+    type: SET_SORT_TERM,
+    payload: term,
   };
 }

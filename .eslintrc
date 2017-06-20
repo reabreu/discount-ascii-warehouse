@@ -8,5 +8,6 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prefer-stateless-function": [0, { "ignorePureComponents": <ignorePureComponents> }],
     "react/prop-types": [0, { "ignorePureComponents": <ignorePureComponents> }],
+    "arrow-body-style": [0, { "ignorePureComponents": <ignorePureComponents> }],
   }
 }

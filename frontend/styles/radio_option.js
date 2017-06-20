@@ -8,5 +8,6 @@ export default styled.div`
   > label {
     font-weight: lighter;
     font-size: 14px;
+    text-transform:capitalize;
   }
 `;
