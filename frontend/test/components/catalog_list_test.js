@@ -1,16 +1,26 @@
 import { renderComponent, expect } from '../test_helper';
-import CatalogList from '../../src/containers/catalog_list';
+import CatalogList from '../../src/components/catalog_list';
 
 export default () => {
   describe('Catalog List', () => {
     let component;
+    const catalog = [];
 
     beforeEach(() => {
-      component = renderComponent(CatalogList);
+      for (let i = 0; i < 10; i++) {
+        catalog.push({
+          date: 'Wed Jun 07 2017 22:35:39 GMT+0100 (WEST)',
+          face: '( .-. )',
+          id: i,
+          price: 789,
+          size: 27,
+        });
+      }
+      component = renderComponent(CatalogList, { catalog, ads: [], loading: false });
     });
 
     it('renders all catalog items', () => {
-      expect(component.find('h1')).to.exist;
+      expect(component.find('.results > div').length).to.eql(catalog.length);
     });
   });
 };
