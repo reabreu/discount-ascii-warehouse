@@ -12,7 +12,7 @@ export default function (ComposedComponent) {
 
       this.state = { ads: [] };
 
-      const throttledHandleScroll = _.throttle(this.handleScroll.bind(this), 300);
+      const throttledHandleScroll = _.throttle(this.handleScroll.bind(this), 500);
       window.addEventListener('scroll', throttledHandleScroll);
     }
 
@@ -37,7 +37,13 @@ export default function (ComposedComponent) {
     }
 
     handleScroll() {
-      if (!this.props.catalog.length) return;
+      if (!this.props.catalog.length || this.props.loading || this.props.fullCatalog) return;
+
+      if (getPageScroll() > 80) {
+        this.generateAds();
+        this.props.setFetchCatalog();
+        this.props.getCatalog(false, this.props.catalog.length);
+      }
     }
 
     render() {
@@ -45,8 +51,8 @@ export default function (ComposedComponent) {
     }
   }
 
-  function mapStateToProps({ catalog, fetchCatalog }) {
-    return { catalog, loading: fetchCatalog };
+  function mapStateToProps({ catalog, fetchCatalog, fullCatalog }) {
+    return { catalog, fullCatalog, loading: fetchCatalog };
   }
 
   return connect(mapStateToProps, actions)(CatalogInfinityScroll);
