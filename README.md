@@ -2,14 +2,13 @@
 
 This is a demo app about a ascii faces store, it features a list for the user to browse and some sorting options, displaying ads between the list.
 
-To install:
+After cloning,
 
- * Clone the repo
+To deploy:
  * Install dependencies  `npm install`
  * Start the server `npm start`
 
 To develop:
-
 * Install dependencies  `npm install`
 * Start backend server with `npm start`
 * Start Webpack Development server `npm start dev`
