@@ -17,9 +17,13 @@ export default function (ComposedComponent) {
     }
 
     componentDidMount() {
+      this.setupAndFetchCatalog();
+    }
+
+    setupAndFetchCatalog() {
       this.generateAds();
       this.props.setFetchCatalog();
-      this.props.getCatalog();
+      this.props.getCatalog(this.props.catalogSort, this.props.catalog.length);
     }
 
     generateAds() {
@@ -40,9 +44,7 @@ export default function (ComposedComponent) {
       if (!this.props.catalog.length || this.props.loading || this.props.fullCatalog) return;
 
       if (getPageScroll() > 80) {
-        this.generateAds();
-        this.props.setFetchCatalog();
-        this.props.getCatalog(this.props.catalogSort, this.props.catalog.length);
+        this.setupAndFetchCatalog();
       }
     }
 
