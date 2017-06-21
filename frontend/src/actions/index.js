@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG, ADD_TO_SEARCH, CLEAR_CATALOG, SET_SORT_TERM } from './types';
-
-const API_ENDPOINT = '/api';
+import { API_ENDPOINT, CATALOG_PER_PAGE } from '../config/config';
 
 export function saveAdId(adId) {
   return {
@@ -24,7 +23,7 @@ export function clearCatalog() {
 }
 
 export function getCatalog(sort = false, skip = false) {
-  let url = `${API_ENDPOINT}/posts?limit=60`;
+  let url = `${API_ENDPOINT}/posts?limit=${CATALOG_PER_PAGE}`;
 
   if (sort) url += `&sort=${sort}`;
 

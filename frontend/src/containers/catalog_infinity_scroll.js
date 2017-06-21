@@ -4,6 +4,7 @@ import _ from 'lodash';
 import * as actions from '../actions';
 import getPageScroll from '../helpers/get_page_scroll';
 import generateAdId from '../helpers/generate_ad_id';
+import { CATALOG_PER_PAGE } from '../config/config';
 
 export default function (ComposedComponent) {
   class CatalogInfinityScroll extends Component {
@@ -28,8 +29,10 @@ export default function (ComposedComponent) {
 
     generateAds() {
       const newAds = [];
+      const numAdsToGenerate = Math.floor(
+        (this.props.catalog.length + CATALOG_PER_PAGE) / 20) - this.state.ads.length;
 
-      for (let i = 0; i < 3; i += 1) {
+      for (let i = 0; i < numAdsToGenerate; i += 1) {
         const newAdId = generateAdId(this.props.lastAdId);
         this.props.saveAdId(newAdId);
         newAds.push(newAdId);
