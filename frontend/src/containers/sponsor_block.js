@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import generateAdId from '../helpers/generate_ad_id';
 import { AD_ENDPOINT } from '../config';
+import SponsorBlockStyles from '../../styles/sponsor_block';
 
 class SponsorBlock extends Component {
   constructor(props) {
@@ -24,9 +25,9 @@ class SponsorBlock extends Component {
 
   render() {
     return (
-      <div className="sponsor-block">
+      <SponsorBlockStyles className="sponsor-block">
         <img alt="sponsor" className="ad" src={`${AD_ENDPOINT}/?r=${this.state.adId}`} />
-      </div>
+      </SponsorBlockStyles>
     );
   }
 }

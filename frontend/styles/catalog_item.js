@@ -27,4 +27,6 @@ export default styled.div.attrs({
     font-weight: lighter;
     margin: 0 0 5px 0;
   }
+
+
 `;

@@ -19,6 +19,14 @@ export default styled.div`
     > div {
       width: calc(25% - 15px);
       margin-bottom: 15px;
+
+      @media (max-width: 650px) {
+        width: calc(50% - 15px);
+      }
+
+      @media (max-width: 650px) {
+        width: 100%;
+      }
     }
 
     .sponsor-block {
