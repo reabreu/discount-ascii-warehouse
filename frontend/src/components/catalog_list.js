@@ -4,13 +4,19 @@ import Loader from '../components/loader';
 import CatalogItem from '../components/catalog_item';
 import SponsorBlock from '../containers/sponsor_block';
 import CatalogItemStyle from '../../styles/catalog_item';
+import { CATALOG_PER_PAGE } from '../config';
 
-export default function ({ catalog, ads, loading, fullCatalog }) {
+export default function ({ catalog, ads, loading, fullCatalog, renderFullCatalog }) {
   const renderItems = () => {
     const toRender = [];
+    const toProcess = catalog.slice();
     let key = 0;
 
-    catalog.forEach((item, index) => {
+    if (!renderFullCatalog) {
+      toProcess.splice(catalog.length - CATALOG_PER_PAGE - 1, CATALOG_PER_PAGE);
+    }
+
+    toProcess.forEach((item, index) => {
       toRender.push(<CatalogItem item={item} key={item.id} />);
 
       if (ads.length) {
@@ -34,7 +40,7 @@ export default function ({ catalog, ads, loading, fullCatalog }) {
     }
   };
 
-  const renderFull = () => {
+  const renderEndofCatalog = () => {
     if (fullCatalog) {
       return (
         <CatalogItemStyle>
@@ -49,7 +55,7 @@ export default function ({ catalog, ads, loading, fullCatalog }) {
       <div className="results">
         {renderItems()}
       </div>
-      {renderFull()}
+      {renderEndofCatalog()}
       {renderLoader()}
     </CatalogListStyle>
   );

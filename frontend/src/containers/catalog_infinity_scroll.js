@@ -4,7 +4,7 @@ import _ from 'lodash';
 import * as actions from '../actions';
 import getPageScroll from '../helpers/get_page_scroll';
 import generateAdId from '../helpers/generate_ad_id';
-import { CATALOG_PER_PAGE } from '../config';
+import { CATALOG_PER_PAGE, CATALOG_FETCH_MORE_PERCENTAGE, CATALOG_RENDER_FULL_PERCENTAGE } from '../config';
 
 export default function (ComposedComponent) {
   class CatalogInfinityScroll extends Component {
@@ -44,9 +44,13 @@ export default function (ComposedComponent) {
     }
 
     handleScroll() {
-      if (!this.props.catalog.length || this.props.loading || this.props.fullCatalog) return;
+      if (getPageScroll() > CATALOG_RENDER_FULL_PERCENTAGE) {
+        setTimeout(() => { this.props.setRenderFull(true); }, 400);
+      }
 
-      if (getPageScroll() > 80) {
+      if (!this.props.catalog.length || this.props.loading || this.props.fullCatalog || !this.props.renderFullCatalog) return;
+
+      if (getPageScroll() > CATALOG_FETCH_MORE_PERCENTAGE) {
         this.setupAndFetchCatalog();
       }
     }
@@ -56,8 +60,8 @@ export default function (ComposedComponent) {
     }
   }
 
-  function mapStateToProps({ catalog, fetchCatalog, fullCatalog, catalogSort }) {
-    return { catalog, fullCatalog, loading: fetchCatalog, catalogSort };
+  function mapStateToProps({ catalog, fetchCatalog, fullCatalog, catalogSort, renderFullCatalog }) {
+    return { catalog, fullCatalog, loading: fetchCatalog, catalogSort, renderFullCatalog };
   }
 
   return connect(mapStateToProps, actions)(CatalogInfinityScroll);

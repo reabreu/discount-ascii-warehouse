@@ -16,7 +16,7 @@ export default () => {
           size: 27,
         });
       }
-      component = renderComponent(CatalogList, { catalog, ads: [], loading: false });
+      component = renderComponent(CatalogList, { catalog, ads: [], loading: false, renderFullCatalog: true });
     });
 
     it('renders all catalog items', () => {
