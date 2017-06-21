@@ -8,7 +8,6 @@ import RadioOption from '../../styles/radio_option';
 const Heading2 = heading2();
 
 class CatalogSearchForm extends Component {
-
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
@@ -24,7 +23,7 @@ class CatalogSearchForm extends Component {
   renderRadios() {
     return ['size', 'price', 'id'].map((item) => {
       return (
-        <RadioOption  key={item}>
+        <RadioOption key={item}>
           <input onClick={this.handleClick} id={`${item}-search-param`} type="radio" name="search_type" value={`${item}`} />
           <label htmlFor={`${item}-search-param`}>{item}</label>
         </RadioOption>

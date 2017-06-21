@@ -4,5 +4,5 @@ export default function getScrollPercent() {
   const st = 'scrollTop';
   const sh = 'scrollHeight';
 
-  return (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+  return ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
 }

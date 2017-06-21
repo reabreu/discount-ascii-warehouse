@@ -1,4 +1,4 @@
-import { NEW_SEARCH, ADD_TO_SEARCH, SET_FETCH_CATALOG } from '../actions/types';
+import { NEW_SEARCH, ADD_TO_SEARCH } from '../actions/types';
 
 export default function (state = false, action) {
   switch (action.type) {

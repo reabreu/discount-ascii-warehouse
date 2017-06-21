@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import SponsorBlock from '../containers/sponsor_block';
 import CatalogBrowser from '../components/catalog_browser';
 import Header from '../../styles/header';

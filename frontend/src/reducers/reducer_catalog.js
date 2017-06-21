@@ -7,7 +7,6 @@ function parseData(response) {
 }
 
 export default function (state = [], action) {
-
   if (action.payload instanceof Promise) return state;
 
   switch (action.type) {
