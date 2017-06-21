@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG, ADD_TO_SEARCH, CLEAR_CATALOG, SET_SORT_TERM } from './types';
+import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG, ADD_TO_SEARCH, CLEAR_CATALOG, SET_SORT_TERM, SET_RENDER_FULL } from './types';
 import { API_ENDPOINT, CATALOG_PER_PAGE } from '../config';
 
 export function saveAdId(adId) {
@@ -49,5 +49,12 @@ export function setSortTerm(term) {
   return {
     type: SET_SORT_TERM,
     payload: term,
+  };
+}
+
+export function setRenderFull(status) {
+  return {
+    type: SET_RENDER_FULL,
+    payload: status,
   };
 }

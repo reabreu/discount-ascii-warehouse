@@ -5,3 +5,4 @@ export const ADD_TO_SEARCH = 'add_to_search';
 export const SET_FETCH_CATALOG = 'set_fetch_catalog';
 export const CLEAR_CATALOG = 'clear_catalog';
 export const SET_SORT_TERM = 'set_sort_term';
+export const SET_RENDER_FULL = 'set_render_full';

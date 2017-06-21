@@ -1,6 +1,6 @@
 import { expect } from '../test_helper';
-import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG, SET_SORT_TERM} from '../../src/actions/types';
-import { saveAdId, searchByParam, getCatalog, setFetchCatalog, setSortTerm } from '../../src/actions';
+import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG, SET_SORT_TERM, SET_RENDER_FULL} from '../../src/actions/types';
+import { saveAdId, searchByParam, getCatalog, setFetchCatalog, setSortTerm, setRenderFull } from '../../src/actions';
 
 describe('Actions', () => {
   describe(SAVE_AD_ID, () => {
@@ -55,7 +55,7 @@ describe('Actions', () => {
       expect(action.type).to.equal(SET_FETCH_CATALOG);
     });
 
-    it('return true', () => {
+    it('returns true', () => {
       const action = setFetchCatalog();
       expect(action.payload).to.equal(true);
     });
@@ -67,9 +67,22 @@ describe('Actions', () => {
       expect(action.type).to.equal(SET_SORT_TERM);
     });
 
-    it('return given param', () => {
+    it('returns given param', () => {
       const action = setSortTerm('price');
       expect(action.payload).to.equal('price');
     });
   });
+
+  describe(SET_RENDER_FULL, () => {
+    it('has the correct type', () => {
+      const action = setRenderFull(true);
+      expect(action.type).to.equal(SET_RENDER_FULL);
+    });
+
+    it('returns given param', () => {
+      const action = setRenderFull(true);
+      expect(action.payload).to.equal(true);
+    });
+  });
+
 });
