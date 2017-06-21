@@ -20,11 +20,11 @@ export default styled.div`
       width: calc(25% - 15px);
       margin-bottom: 15px;
 
-      @media (max-width: 650px) {
+      @media (max-width: 1024px) {
         width: calc(50% - 15px);
       }
 
-      @media (max-width: 650px) {
+      @media (max-width: 450px) {
         width: 100%;
       }
     }

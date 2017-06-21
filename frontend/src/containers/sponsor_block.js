@@ -26,7 +26,9 @@ class SponsorBlock extends Component {
   render() {
     return (
       <SponsorBlockStyles className="sponsor-block">
-        <img alt="sponsor" className="ad" src={`${AD_ENDPOINT}/?r=${this.state.adId}`} />
+        <div>
+          <img alt="sponsor" className="ad" src={`${AD_ENDPOINT}/?r=${this.state.adId}`} />
+        </div>
       </SponsorBlockStyles>
     );
   }

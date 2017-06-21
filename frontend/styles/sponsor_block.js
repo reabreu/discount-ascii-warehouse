@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  > img {
+  img {
     display: block;
-    width: 100%;
+    max-width: 100%;
     height: auto;
   }
 `;

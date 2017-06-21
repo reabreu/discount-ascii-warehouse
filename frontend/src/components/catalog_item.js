@@ -17,7 +17,7 @@ function moneyToString(money) {
 
 export default function ({ item }) {
   return (
-    <CatalogItem className="catalog-item" >
+    <CatalogItem className="catalog-item" fontSize={item.size}>
       <div>
         <p className="font">{item.face}</p>
         <p className="price">{moneyToString(item.price)}</p>

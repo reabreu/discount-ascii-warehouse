@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.div.attrs({
-	fontSize: props => `${props.fontSize}px`  || '14px'
+  fontSize: props => `${props.fontSize}px` || '14px'
 })`
   padding: 10px;
   border: 1px solid grey;
@@ -15,6 +15,7 @@ export default styled.div.attrs({
   .font {
     font-size: ${props => props.fontSize};
     margin: 0 0 15px 0;
+    word-break: break-all;
   }
 
   .price {
