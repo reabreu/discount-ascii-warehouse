@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SAVE_AD_ID, SEARCH_BY_PARAM, NEW_SEARCH, SET_FETCH_CATALOG, ADD_TO_SEARCH, CLEAR_CATALOG, SET_SORT_TERM } from './types';
-import { API_ENDPOINT, CATALOG_PER_PAGE } from '../config/config';
+import { API_ENDPOINT, CATALOG_PER_PAGE } from '../config';
 
 export function saveAdId(adId) {
   return {
