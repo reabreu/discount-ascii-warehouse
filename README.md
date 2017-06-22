@@ -20,4 +20,4 @@ Features
 - Automation: `webpack 2` to transpile and build the final app, generating both the final `.js` and `.html` files, which are inserted into a folder (/static) and then served later by the server;
 - Linting: `Airbnb's` JavaScript Style Guide;
 - Testing: it uses `Mocha` and `Chai` to test all of the app's different components;
-- App Architecture: It uses `React` for interface management and `Redux` for state management;  
+- App Architecture: It uses `React` (with Higher Order Components) for interface management and `Redux` (with middleware) for state management;  
