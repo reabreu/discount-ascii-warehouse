@@ -37,4 +37,5 @@ module.exports = {
     },
   },
   plugins: [HtmlWebpackPluginConfig],
+  devtool: '#eval-source-map',
 };

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import sponsorAdReducer from './reducer_sponsor_ad';
-import catalogReducer from './reducer_catalog';
-import catalogSetFetchingReducer from './reducer_catalog_set_fetching';
-import catalogFullReducer from './reducer_catalog_full';
-import catalogSortReducer from './reducer_catalog_sort';
-import catalogRenderFull from './reducer_catalog_render_full';
+import sponsorAdReducer from './sponsor_ad/sponsor_ad';
+import catalogReducer from './catalog/catalog';
+import catalogSetFetchingReducer from './catalog_set_fetching/catalog_set_fetching';
+import catalogFullReducer from './catalog_full/catalog_full';
+import catalogSortReducer from './catalog_sort/catalog_sort';
+import catalogRenderFull from './catalog_render_full/catalog_render_full';
 
 const rootReducer = combineReducers({
   lastAdId: sponsorAdReducer,

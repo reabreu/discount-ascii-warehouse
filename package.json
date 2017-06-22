@@ -8,7 +8,7 @@
     "start": "node .",
     "dev": "webpack-dev-server --progress --colors --open",
     "postinstall": "webpack -p",
-    "test": "mocha --compilers js:babel-core/register --require ./frontend/test/test_helper.js './frontend/test/**/index_test.js'",
+    "test": "mocha --compilers js:babel-core/register --require ./frontend/src/test/test_helper.js './frontend/src/**/test.js'",
     "test:watch": "npm run test -- --watch"
   },
   "author": "",
